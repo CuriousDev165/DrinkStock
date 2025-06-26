@@ -1,0 +1,69 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:model="clr-namespace:DrinkStock.Models"  
+             xmlns:viewmodel="clr-namespace:DrinkStock.ViewModels"  
+             x:DataType="viewmodel:MainPageViewModel"  
+             x:Class="DrinkStock.MainPage">
+    <Shell.TitleView>
+        <Label Text="DrinkStock" 
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               FontSize="25"/>
+    </Shell.TitleView>
+    <Grid ColumnDefinitions="*,*,*,*,*"
+          RowDefinitions="Auto,*"
+          Padding="10"
+          BackgroundColor="#aaaaaa">
+        <Label  Grid.Row="0"
+                Text="Drink Name"
+                HorizontalTextAlignment="Center"
+                TextDecorations="Underline"/>
+        <Label Grid.Row="0"
+               Grid.Column="2"
+               Text="Count"
+               HorizontalTextAlignment="Center"
+               TextDecorations="Underline"/>
+        <Label Grid.Row="0"
+               Grid.Column="4"
+               Text="Downstock Qty"
+               HorizontalTextAlignment="Center"
+               TextDecorations="Underline"/>
+        <CollectionView ItemsSource="{Binding Drinks}"
+                        Grid.ColumnSpan="5"
+                        Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Drink">
+                    <Grid ColumnDefinitions="*,*,*,*,*" Padding="0,0,0,10">
+                        <Label Grid.Column="0"
+                               Text="{Binding Name}"
+                               FontSize="12"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"/>
+                        <Button Grid.Column="1"
+                                Text="-"
+                                Command="{Binding SubtractOneCommand}"
+                                HeightRequest="25"
+                                WidthRequest="25"/>
+                        <Entry Grid.Column="2"
+                               x:Name="CurrentStockEntry"
+                               Text="{Binding CurrentStock}"
+                               Keyboard="Numeric"
+                               HorizontalTextAlignment="Center"
+                               WidthRequest="20"/>
+                        <Button Grid.Column="3"
+                                Text="+"
+                                Command="{Binding AddOneCommand}"
+                                HeightRequest="25"
+                                WidthRequest="25"/>
+                        <Label Grid.Column="4"
+                               Text="{Binding DownstockQuantity}"
+                               FontSize="12"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+        
+</ContentPage>
