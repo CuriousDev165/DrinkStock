@@ -10,16 +10,18 @@
                VerticalTextAlignment="Center"
                FontSize="25"/>
     </Shell.TitleView>
-    <Grid ColumnDefinitions="*,*,*,*,*"
+    <Grid ColumnDefinitions="*,0,90,0,*"
           RowDefinitions="Auto,*"
-          Padding="10"
+          Padding="20"
           BackgroundColor="#aaaaaa">
         <Label  Grid.Row="0"
+                Grid.Column="0"
                 Text="Drink Name"
                 HorizontalTextAlignment="Center"
                 TextDecorations="Underline"/>
         <Label Grid.Row="0"
-               Grid.Column="2"
+               Grid.Column="1"
+               Grid.ColumnSpan="3"
                Text="Count"
                HorizontalTextAlignment="Center"
                TextDecorations="Underline"/>
@@ -29,35 +31,37 @@
                HorizontalTextAlignment="Center"
                TextDecorations="Underline"/>
         <CollectionView ItemsSource="{Binding Drinks}"
-                        Grid.ColumnSpan="5"
-                        Grid.Row="1">
+                        Grid.Row="1"
+                        Grid.ColumnSpan="5">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Drink">
-                    <Grid ColumnDefinitions="*,*,*,*,*" Padding="0,0,0,10">
+                    <Grid ColumnDefinitions="*,0,90,0,*" Padding="0,10,0,0">
                         <Label Grid.Column="0"
                                Text="{Binding Name}"
-                               FontSize="12"
+                               FontSize="11"
                                HorizontalTextAlignment="Center"
-                               VerticalTextAlignment="Center"/>
+                               VerticalTextAlignment="Center"
+                               MaximumWidthRequest="60"/>
                         <Button Grid.Column="1"
                                 Text="-"
                                 Command="{Binding SubtractOneCommand}"
-                                HeightRequest="25"
-                                WidthRequest="25"/>
+                                HeightRequest="15"
+                                WidthRequest="15"/>
                         <Entry Grid.Column="2"
                                x:Name="CurrentStockEntry"
                                Text="{Binding CurrentStock}"
+                               FontSize="15"
                                Keyboard="Numeric"
                                HorizontalTextAlignment="Center"
                                WidthRequest="20"/>
                         <Button Grid.Column="3"
                                 Text="+"
                                 Command="{Binding AddOneCommand}"
-                                HeightRequest="25"
-                                WidthRequest="25"/>
+                                HeightRequest="15"
+                                WidthRequest="15"/>
                         <Label Grid.Column="4"
                                Text="{Binding DownstockQuantity}"
-                               FontSize="12"
+                               FontSize="15"
                                HorizontalTextAlignment="Center"
                                VerticalTextAlignment="Center"/>
                     </Grid>

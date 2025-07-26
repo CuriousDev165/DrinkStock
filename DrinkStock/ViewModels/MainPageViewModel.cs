@@ -23,7 +23,6 @@ namespace DrinkStock.ViewModels
             new Drink { Name = "Diet Dr. Pepper", MaxStock = 10 },
             new Drink { Name = "Fanta Orange", MaxStock = 10 },
             new Drink { Name = "Gold Peak Sweet Tea", MaxStock = 10 },
-            new Drink { Name = "Smart Water", MaxStock = 10 },
             new Drink { Name = "Powerade Blue", MaxStock = 10 },
             new Drink { Name = "Powerade Red", MaxStock = 10 },
             new Drink { Name = "Powerade Zero Blue", MaxStock = 10 },
@@ -46,10 +45,10 @@ namespace DrinkStock.ViewModels
             new Drink { Name = "NOS Blue", MaxStock = 12 },
             new Drink { Name = "NOS Purple", MaxStock = 12 },
             new Drink { Name = "Reign Orange", MaxStock = 12 },
-            new Drink { Name = "Reign Tiny Purple Can?", MaxStock = 12 },
-            new Drink { Name = "Bang Orange", MaxStock = 12 }
+            new Drink { Name = "Reign Storm Harvest Grape", MaxStock = 12 },
+            new Drink { Name = "Reign Storm Guava Strawberry", MaxStock = 12 },
+            new Drink { Name = "Bang Orange", MaxStock = 12 },
+            new Drink { Name = "Smart Water", MaxStock = 10 }
         ];
     }
-
-    
 }
